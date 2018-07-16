@@ -25,7 +25,7 @@ public class RemindersLifecycleTest {
 
     @Rule
     public ActivityTestRule<MainActivity> mActivityTestRule = new ActivityTestRule<>(MainActivity.class);
-
+    // This is the first test
     @Test
     public void remindersLifecycle() {
         ViewInteraction viewInteraction = onView(allOf(withId(R.id.fab_expand_menu_button), withParent(withId(R.id.fab)), isDisplayed()));
