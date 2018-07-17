@@ -1,12 +1,19 @@
-package it.feio.android.omninotes;
+package it.feio.android.omninotes.Tests;
 
 import android.support.test.espresso.ViewInteraction;
+import android.support.test.espresso.matcher.ViewMatchers;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 import android.test.suitebuilder.annotation.LargeTest;
+
+import org.hamcrest.Matchers;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+
+import it.feio.android.omninotes.MainActivity;
+import it.feio.android.omninotes.OmniNotes;
+import it.feio.android.omninotes.R;
 
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
@@ -25,10 +32,10 @@ public class RemindersLifecycleTest {
 
     @Rule
     public ActivityTestRule<MainActivity> mActivityTestRule = new ActivityTestRule<>(MainActivity.class);
-    // This is the first test
+
     @Test
     public void remindersLifecycle() {
-        ViewInteraction viewInteraction = onView(allOf(withId(R.id.fab_expand_menu_button), withParent(withId(R.id.fab)), isDisplayed()));
+        ViewInteraction viewInteraction = onView(Matchers.allOf(ViewMatchers.withId(R.id.fab_expand_menu_button), withParent(withId(R.id.fab)), isDisplayed()));
         viewInteraction.perform(click());
 
         ViewInteraction floatingActionButton = onView(allOf(withId(R.id.fab_note), withParent(withId(R.id.fab)), isDisplayed()));
