@@ -1,4 +1,4 @@
-package it.feio.android.omninotes.Tests;
+package it.feio.android.omninotes.tests;
 
 import android.support.test.espresso.ViewInteraction;
 import android.support.test.espresso.matcher.ViewMatchers;

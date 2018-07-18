@@ -1,4 +1,4 @@
-package it.feio.android.omninotes.Helpers;
+package it.feio.android.omninotes.helpers;
 
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
@@ -12,6 +12,8 @@ import it.feio.android.omninotes.MainActivity;
 @LargeTest
 @RunWith(AndroidJUnit4.class)
 public class EspressoTestBase {
+
     @Rule
     public ActivityTestRule<MainActivity> mActivityTestRule = new ActivityTestRule<>(MainActivity.class);
+
 }

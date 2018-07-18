@@ -1,16 +1,8 @@
-package it.feio.android.omninotes.Helpers;
+package it.feio.android.omninotes.helpers;
 
-import android.support.test.espresso.ViewAction;
-import android.support.test.espresso.action.CoordinatesProvider;
-import android.support.test.espresso.action.GeneralClickAction;
-import android.support.test.espresso.action.Press;
-import android.support.test.espresso.action.Tap;
 import android.view.View;
-import android.view.ViewGroup;
 
-import org.hamcrest.Description;
 import org.hamcrest.Matcher;
-import org.hamcrest.TypeSafeMatcher;
 
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
@@ -46,24 +38,6 @@ public class Methods {
         }
     }
 
-    public static boolean isFirstObjectLeftOfSecondObject(Matcher<View> matcher, Matcher<View> matcher2) {
-        try {
-            onView(matcher).check(isLeftOf(matcher2));
-            return true;
-        } catch (Exception e) {
-            return false;
-        }
-    }
-
-    public static boolean isFirstObjectRightOfSecondObject(Matcher<View> matcher, Matcher<View> matcher2) {
-        try {
-            onView(matcher).check(isRightOf(matcher2));
-            return true;
-        } catch (Exception e) {
-            return false;
-        }
-    }
-
     public static boolean isFirstObjectAboveSecondObject(Matcher<View> matcher, Matcher<View> matcher2) {
         try {
             onView(matcher).check(isAbove(matcher2));
@@ -82,9 +56,27 @@ public class Methods {
         }
     }
 
+    public static boolean isFirstObjectRightOfSecondObject(Matcher<View> matcher, Matcher<View> matcher2) {
+        try {
+            onView(matcher).check(isRightOf(matcher2));
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    public static boolean isFirstObjectLeftOfSecondObject(Matcher<View> matcher, Matcher<View> matcher2) {
+        try {
+            onView(matcher).check(isLeftOf(matcher2));
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
     public static boolean isFirstObjectSiblingOfSecondObject(Matcher<View> firstObjectMatcher, Matcher<View> secondObjectMatcher) {
         try {
-            onView(allOf(firstObjectMatcher, hasSibling(secondObjectMatcher))).check(matches(isDisplayed()));
+            onView(firstObjectMatcher).check(matches(hasSibling(secondObjectMatcher)));
             return true;
         } catch (Exception e) {
             return false;
@@ -106,44 +98,5 @@ public class Methods {
 
     public static void typeSomeText(Matcher<View> matcher, String textInput) {
         onView(matcher).perform(typeText(textInput));
-    }
-
-    public static ViewAction clickXY(final int x, final int y) {
-        return new GeneralClickAction(
-                Tap.SINGLE,
-                new CoordinatesProvider() {
-                    @Override
-                    public float[] calculateCoordinates(View view) {
-
-                        final int[] screenPos = new int[2];
-                        view.getLocationOnScreen(screenPos);
-
-                        final float screenX = screenPos[0] + x;
-                        final float screenY = screenPos[1] + y;
-                        float[] coordinates = {screenX, screenY};
-
-                        return coordinates;
-                    }
-                },
-                Press.FINGER);
-    }
-
-    public static Matcher<View> nthChildOf(final Matcher<View> parentMatcher, final int childPosition) {
-        return new TypeSafeMatcher<View>() {
-            @Override
-            public void describeTo(Description description) {
-                description.appendText("with " + childPosition + " child view of type parentMatcher");
-            }
-
-            @Override
-            public boolean matchesSafely(View view) {
-                if (!(view.getParent() instanceof ViewGroup)) {
-                    return parentMatcher.matches(view.getParent());
-                }
-
-                ViewGroup group = (ViewGroup) view.getParent();
-                return parentMatcher.matches(view.getParent()) && group.getChildAt(childPosition).equals(view);
-            }
-        };
     }
 }
