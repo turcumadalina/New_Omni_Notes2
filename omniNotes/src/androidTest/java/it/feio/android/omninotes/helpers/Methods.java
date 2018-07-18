@@ -1,12 +1,8 @@
-package it.feio.android.omninotes.Helpers;
+package it.feio.android.omninotes.helpers;
 
 import android.support.test.espresso.AppNotIdleException;
 import android.support.test.espresso.NoMatchingRootException;
 import android.support.test.espresso.NoMatchingViewException;
-import android.support.test.espresso.UiController;
-import android.support.test.espresso.ViewAction;
-import android.support.test.espresso.matcher.ViewMatchers;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import junit.framework.AssertionFailedError;
@@ -51,27 +47,5 @@ public class Methods {
         } catch (NoMatchingViewException | AppNotIdleException | AssertionFailedError | NoMatchingRootException e) {
             return false;
         }
-    }
-
-    public static int getListViewChildCount(Matcher<View> matcher) {
-        final int[] count = {0};
-        onView(matcher).perform(new ViewAction() {
-            @Override
-            public Matcher<View> getConstraints() {
-                return ViewMatchers.isAssignableFrom(RecyclerView.class);
-            }
-
-            @Override
-            public String getDescription() {
-                return "getting child count";
-            }
-
-            @Override
-            public void perform(UiController uiController, View view) {
-                RecyclerView rv = (RecyclerView) view;
-                count[0] = rv.getChildCount();
-            }
-        });
-        return count[0];
     }
 }

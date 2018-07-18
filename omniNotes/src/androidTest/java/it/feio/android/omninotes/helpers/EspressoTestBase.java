@@ -1,4 +1,4 @@
-package it.feio.android.omninotes.Helpers;
+package it.feio.android.omninotes.helpers;
 
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
