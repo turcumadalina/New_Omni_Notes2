@@ -1,12 +1,21 @@
 package it.feio.android.omninotes.screens;
 
+import android.view.View;
+
+import org.hamcrest.Matcher;
+
 import it.feio.android.omninotes.R;
 import it.feio.android.omninotes.helpers.Constants;
 import it.feio.android.omninotes.helpers.Matchers;
 import it.feio.android.omninotes.helpers.Methods;
 
+import static android.support.test.espresso.matcher.ViewMatchers.hasSibling;
+import static android.support.test.espresso.matcher.ViewMatchers.isDescendantOfA;
+import static android.support.test.espresso.matcher.ViewMatchers.withChild;
 import static android.support.test.espresso.matcher.ViewMatchers.withContentDescription;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
+import static android.support.test.espresso.matcher.ViewMatchers.withParent;
+import static org.hamcrest.core.AllOf.allOf;
 
 public class AddTextNote {
 
@@ -63,21 +72,18 @@ public class AddTextNote {
     }
 
     public static boolean isContentDescendantOfLinearLayout() {
-        return Methods.isFirstObjectDescendantOfSecondObject(Matchers.nthChildOf(Matchers.nthChildOf(withId(R.id.content_wrapper),
-                0), 1), Matchers.nthChildOf(Matchers.nthChildOf(Matchers.nthChildOf
-                (withId(R.id.content_wrapper), 0), 1), 0));
+        Matcher<View> addReminder = allOf(withId(R.id.detail_content), isDescendantOfA(withParent(withParent(withParent(withId(R.id.content_wrapper))))));
+        return Methods.isObjectDisplayed(addReminder);
     }
 
     public static boolean isAddReminderDescendantOfLinearLayout() {
-        return Methods.isFirstObjectDescendantOfSecondObject(Matchers.nthChildOf(Matchers.nthChildOf(withId(R.id.content_wrapper),
-                0), 1), Matchers.nthChildOf(Matchers.nthChildOf(Matchers.nthChildOf
-                (withId(R.id.content_wrapper), 0), 1), 1));
+        Matcher<View> addReminder = allOf(withId(R.id.datetime), isDescendantOfA(withId(R.id.reminder_layout)));
+        return Methods.isObjectDisplayed(addReminder);
     }
 
     public static boolean isContentSiblingWithAddReminder() {
-        return Methods.isFirstObjectSiblingOfSecondObject(Matchers.nthChildOf(Matchers.nthChildOf(Matchers.nthChildOf
-                (withId(R.id.content_wrapper), 0), 1), 0), Matchers.nthChildOf
-                (Matchers.nthChildOf(Matchers.nthChildOf(withId(R.id.content_wrapper), 0), 1), 1));
+        Matcher<View> contentSiblingAddReminder = allOf(withChild(withId(R.id.detail_content)), hasSibling(withId(R.id.reminder_layout)));
+        return Methods.isObjectDisplayed(contentSiblingAddReminder);
     }
 
     public static void clickOnADay() {

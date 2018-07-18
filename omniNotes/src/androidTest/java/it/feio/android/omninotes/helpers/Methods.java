@@ -12,11 +12,8 @@ import static android.support.test.espresso.assertion.PositionAssertions.isBelow
 import static android.support.test.espresso.assertion.PositionAssertions.isLeftOf;
 import static android.support.test.espresso.assertion.PositionAssertions.isRightOf;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
-import static android.support.test.espresso.matcher.ViewMatchers.hasDescendant;
-import static android.support.test.espresso.matcher.ViewMatchers.hasSibling;
 import static android.support.test.espresso.matcher.ViewMatchers.isClickable;
 import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
-import static org.hamcrest.Matchers.allOf;
 
 public class Methods {
 
@@ -68,24 +65,6 @@ public class Methods {
     public static boolean isFirstObjectLeftOfSecondObject(Matcher<View> matcher, Matcher<View> matcher2) {
         try {
             onView(matcher).check(isLeftOf(matcher2));
-            return true;
-        } catch (Exception e) {
-            return false;
-        }
-    }
-
-    public static boolean isFirstObjectSiblingOfSecondObject(Matcher<View> firstObjectMatcher, Matcher<View> secondObjectMatcher) {
-        try {
-            onView(firstObjectMatcher).check(matches(hasSibling(secondObjectMatcher)));
-            return true;
-        } catch (Exception e) {
-            return false;
-        }
-    }
-
-    public static boolean isFirstObjectDescendantOfSecondObject(Matcher<View> firstObjectMatcher, Matcher<View> secondObjectMatcher) {
-        try {
-            onView(allOf(firstObjectMatcher, hasDescendant(secondObjectMatcher))).check(matches(isDisplayed()));
             return true;
         } catch (Exception e) {
             return false;
