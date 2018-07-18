@@ -23,7 +23,7 @@ public class ToolbarValidationTest extends StartTheApplication {
 
         // Expected Result: Menu_Sort is displayed between menu_search and more option.
         assertTrue("MenuSort in not displayed in the right of Search.", Home.isMenuSortInTheRightOfSearch());
-        assertTrue("MenuSort is not displayed in the left of MoreOptions", Home.isMenuSortInTheLeftOfMoreOptions());
+        assertTrue("MenuSort is not displayed in the left of MoreOptions.", Home.isMenuSortInTheLeftOfMoreOptions());
 
         // Step: Add 5 items (1 of them with title "My note").
         HelpersMethods.typeNewItemAction(4, 4);
@@ -43,7 +43,7 @@ public class ToolbarValidationTest extends StartTheApplication {
         Search.clickSearchReturn();
 
         // Expected Result: All 5 items are displayed.
-        assertEquals(5, EspressoMethods.getChildCountFromListView(withId(R.id.list)));
+        assertEquals("There are more/less then 5 items in fragment container.", 5, EspressoMethods.getChildCountFromListView(withId(R.id.list)));
 
         // Step: Click on the item with text " My Note" and move it to trash (on more option click on "Trash").
         Home.clickMyNoteItemFromTheList();

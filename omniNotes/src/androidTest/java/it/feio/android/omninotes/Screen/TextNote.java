@@ -11,23 +11,23 @@ import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
 
 public class TextNote {
-    public static void clickAddButton() {
+    private static void clickAddButton() {
         HelpersMethods.clickAction(withId(R.id.fab_expand_menu_button));
     }
 
-    public static void clickTextNoteButton() {
+    private static void clickTextNoteButton() {
         HelpersMethods.clickAction(withId(R.id.fab_note));
     }
 
-    public static void clickTitleBox() {
+    private static void clickTitleBox() {
         HelpersMethods.clickAction(withId(R.id.detail_title));
     }
 
-    public static void clickContentBox() {
+    private static void clickContentBox() {
         HelpersMethods.clickAction(withId(R.id.detail_content));
     }
 
-    public static void clickReturnButton() {
+    private static void clickReturnButton() {
         HelpersMethods.clickAction(withContentDescription(Constants.DRAWER_OPEN));
     }
 
@@ -36,7 +36,7 @@ public class TextNote {
     }
 
     public static void clickTrashButton() {
-        HelpersMethods.clickAction(withText(Constants.TRASH));
+        HelpersMethods.clickAction(withText(R.string.trash));
     }
 
     public static void addRandomStringText() {
