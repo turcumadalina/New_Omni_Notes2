@@ -1,12 +1,11 @@
 package it.feio.android.omninotes.Helpers;
 
 public class Constants {
-    public static String childCount = "Getting child count";
-    public static String childPosition = "Child at position";
-    public static String parent = " in parent ";
-    public static String returnContentDescription = "drawer open";
-    public static String myNoteText = "My note.";
-    public static String myNoteTextNotVisibleRight = "MenuSort in not displayed in the right of Search.";
-    public static String myNoteTextNotVisibleLeft = "MenuSort is not displayed in the left of MoreOptions";
-    public static String myNoteTextNotVisible = "My note text is not displayed.";
+    public static final String GETTING_CHILD_COUNT = "Getting child count";
+    public static final String DRAWER_OPEN = "drawer open";
+    public static final String MY_NOTE = "My note.";
+    public static final String MORE_OPTIONS = "More options";
+    public static final String ALPHANUMERIC_RANDOM_STRING = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+    public static final String COLLAPSE = "Collapse";
+    public static final String TRASH = "Trash";
 }
