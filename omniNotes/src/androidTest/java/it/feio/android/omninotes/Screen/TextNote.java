@@ -4,30 +4,28 @@ import it.feio.android.omninotes.Helpers.Constants;
 import it.feio.android.omninotes.Helpers.HelpersMethods;
 import it.feio.android.omninotes.R;
 
-import static android.support.test.espresso.Espresso.onView;
-import static android.support.test.espresso.action.ViewActions.typeText;
 import static android.support.test.espresso.matcher.ViewMatchers.withContentDescription;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
 
 public class TextNote {
-    private static void clickAddButton() {
+    public static void clickAddButton() {
         HelpersMethods.clickAction(withId(R.id.fab_expand_menu_button));
     }
 
-    private static void clickTextNoteButton() {
+    public static void clickTextNoteButton() {
         HelpersMethods.clickAction(withId(R.id.fab_note));
     }
 
-    private static void clickTitleBox() {
+    public static void clickTitleBox() {
         HelpersMethods.clickAction(withId(R.id.detail_title));
     }
 
-    private static void clickContentBox() {
+    public static void clickContentBox() {
         HelpersMethods.clickAction(withId(R.id.detail_content));
     }
 
-    private static void clickReturnButton() {
+    public static void clickReturnButton() {
         HelpersMethods.clickAction(withContentDescription(Constants.DRAWER_OPEN));
     }
 
@@ -37,25 +35,5 @@ public class TextNote {
 
     public static void clickTrashButton() {
         HelpersMethods.clickAction(withText(R.string.trash));
-    }
-
-    public static void addRandomText() {
-        TextNote.clickAddButton();
-        TextNote.clickTextNoteButton();
-        TextNote.clickTitleBox();
-        onView(withId(R.id.detail_title)).perform(typeText(HelpersMethods.getRandomString(5)));
-        TextNote.clickContentBox();
-        onView(withId(R.id.detail_content)).perform(typeText(HelpersMethods.getRandomString(5)));
-        TextNote.clickReturnButton();
-    }
-
-    public static void addSpecificText() {
-        TextNote.clickAddButton();
-        TextNote.clickTextNoteButton();
-        TextNote.clickTitleBox();
-        onView(withId(R.id.detail_title)).perform(typeText(Constants.MY_NOTE));
-        TextNote.clickContentBox();
-        onView(withId(R.id.detail_content)).perform(typeText(HelpersMethods.getRandomString(5)));
-        TextNote.clickReturnButton();
     }
 }
