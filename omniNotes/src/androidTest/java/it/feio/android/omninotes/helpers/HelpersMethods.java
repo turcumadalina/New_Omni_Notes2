@@ -9,6 +9,8 @@ import junit.framework.AssertionFailedError;
 
 import org.hamcrest.Matcher;
 
+import it.feio.android.omninotes.R;
+
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.action.ViewActions.swipeLeft;
@@ -16,8 +18,9 @@ import static android.support.test.espresso.action.ViewActions.typeText;
 import static android.support.test.espresso.assertion.PositionAssertions.isBelow;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import static android.support.test.espresso.matcher.ViewMatchers.isCompletelyDisplayed;
+import static android.support.test.espresso.matcher.ViewMatchers.withId;
 
-public class Methods {
+public class HelpersMethods {
 
     public static void clickUIElement(Matcher<View> matcher) {
         onView(matcher).perform(click());
@@ -40,12 +43,16 @@ public class Methods {
         onView(matcher).perform(swipeLeft());
     }
 
-    public static boolean isUIObjectBelowAnotherObject(Matcher<View> matcher1, Matcher<View> matcher2) {
-        try {
-            onView(matcher1).check(isBelow(matcher2));
-            return true;
-        } catch (NoMatchingViewException | AppNotIdleException | AssertionFailedError | NoMatchingRootException e) {
-            return false;
-        }
+//    public static boolean isUIObjectBelowAnotherObject(Matcher<View> matcher1, Matcher<View> matcher2) {
+//        try {
+//            onView(matcher1).check(isBelow(matcher2));
+//            return true;
+//        } catch (NoMatchingViewException | AppNotIdleException | AssertionFailedError | NoMatchingRootException e) {
+//            return false;
+//        }
+//    }
+
+    public static int getNoOfChildsFromListView() {
+        return EspressoMatchers.getListViewChildCount(withId(R.id.list));
     }
 }

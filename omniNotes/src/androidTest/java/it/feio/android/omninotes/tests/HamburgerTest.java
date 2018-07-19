@@ -3,11 +3,13 @@ package it.feio.android.omninotes.tests;
 import org.junit.Test;
 
 import it.feio.android.omninotes.helpers.EspressoTestBase;
+import it.feio.android.omninotes.helpers.HelpersMethods;
 import it.feio.android.omninotes.screens.Archives;
 import it.feio.android.omninotes.screens.Home;
 import it.feio.android.omninotes.screens.NavigationDrawer;
 import it.feio.android.omninotes.screens.Trash;
 
+import static junit.framework.Assert.assertEquals;
 import static junit.framework.Assert.assertFalse;
 import static junit.framework.Assert.assertTrue;
 
@@ -40,13 +42,13 @@ public class HamburgerTest extends EspressoTestBase {
         Thread.sleep(2000);
 
         // Verify: The button with name Archive is displayed and has sibling the button with name Notes
-        assertTrue("Archive button is not displayed", NavigationDrawer.isArchiveButtonDisplayedAndHasSiblingTheNoteButton());
+        assertTrue("Archive button is not displayed and is not sibling with Notes button", NavigationDrawer.isArchiveButtonDisplayedAndHasSiblingTheNoteButton());
 
         // Step: Click on Archive button
         NavigationDrawer.clickOnArchiveButton();
 
         // Verify: Note with title "Pay the bills" is displayed"
-        assertTrue("Note whit text Pay the bills is not displayed", Archives.isNoteWithTextPayTheBilsDisplayed());
+        assertTrue("Note with text Pay the bills is not displayed", Archives.isNoteWithTextPayTheBilsDisplayed());
 
         // Step: Delete the note with title "Pay the bills" from archives
         Archives.removeNoteWithTitlePayTheBills();
@@ -73,7 +75,7 @@ public class HamburgerTest extends EspressoTestBase {
         assertTrue("Note with title Pay the bills is displayed on Trash is not displayed", Trash.isNoteWithTitlePayTheBillsDisplayed());
 
         // Verify: List View has one child
-        assertTrue("List View has more then one child", Trash.isListViewWithOneChild());
+        assertEquals("List View has more/less then one child", 1, HelpersMethods.getNoOfChildsFromListView());
 
         // Step: Click on more options button
         Trash.clickOnMoreOptionButton();
@@ -88,6 +90,6 @@ public class HamburgerTest extends EspressoTestBase {
         Thread.sleep(2000);
 
         // Verify: Note with title Pay the bills is NOT displayed"
-        assertFalse("Note with title pay the bills is stiil visible", Trash.isNoteWithTitlePayTheBillsDisplayed());
+        assertFalse("Note with title pay the bills is still visible", Trash.isNoteWithTitlePayTheBillsDisplayed());
     }
 }

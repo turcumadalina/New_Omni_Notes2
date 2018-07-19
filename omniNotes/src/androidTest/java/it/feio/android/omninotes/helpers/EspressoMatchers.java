@@ -10,7 +10,7 @@ import org.hamcrest.Matcher;
 
 import static android.support.test.espresso.Espresso.onView;
 
-public class Mathers {
+public class EspressoMatchers {
     public static int getListViewChildCount(Matcher<View> matcher) {
         final int[] count = {0};
         onView(matcher).perform(new ViewAction() {
