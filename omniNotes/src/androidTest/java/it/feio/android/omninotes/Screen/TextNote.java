@@ -57,6 +57,5 @@ public class TextNote {
         TextNote.clickContentBox();
         onView(withId(R.id.detail_content)).perform(typeText(HelpersMethods.getRandomString(5)));
         TextNote.clickReturnButton();
-
     }
 }

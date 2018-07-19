@@ -32,7 +32,7 @@ public class ToolbarValidationTest extends StartTheApplication {
         assertEquals("There are more/less then 5 items in fragment container.", 5, EspressoMethods.getChildCountFromListView(withId(R.id.list)));
 
         // Step:On toolbar, search for the item with text "My note".
-        Home.clickSearchButtonAndSearch();
+        Home.clickSearchButton();
         Search.typeMyNoteText();
         Home.clickSearchButtonAndroid();
 

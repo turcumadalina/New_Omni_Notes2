@@ -19,5 +19,4 @@ public class Search {
     public static boolean isMyNoteTextVisible() {
         return HelpersMethods.isVisible(withId(R.id.note_title));
     }
-
 }

@@ -19,7 +19,7 @@ public class Home {
         return HelpersMethods.isFirstMatcherToTheLeftOfSecondMatcher(withId(R.id.menu_sort), withContentDescription(Constants.MORE_OPTIONS));
     }
 
-    public static void clickSearchButtonAndSearch() {
+    public static void clickSearchButton() {
         HelpersMethods.clickAction(withId(R.id.menu_search));
     }
 
@@ -35,9 +35,3 @@ public class Home {
         HelpersMethods.clickTheSearchButtonAndroid(withId(R.id.search_src_text));
     }
 }
-
-
-
-
-
-
