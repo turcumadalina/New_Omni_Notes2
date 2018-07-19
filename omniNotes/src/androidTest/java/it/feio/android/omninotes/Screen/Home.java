@@ -1,6 +1,7 @@
 package it.feio.android.omninotes.Screen;
 
 import it.feio.android.omninotes.Helpers.Constants;
+import it.feio.android.omninotes.Helpers.EspressoMethods;
 import it.feio.android.omninotes.Helpers.HelpersMethods;
 import it.feio.android.omninotes.R;
 
@@ -33,5 +34,9 @@ public class Home {
 
     public static void clickSearchButtonAndroid() {
         HelpersMethods.clickTheSearchButtonAndroid(withId(R.id.search_src_text));
+    }
+
+    public static boolean isTextStyleBold() {
+        return HelpersMethods.isVisible(allOf(withId(R.id.note_content), EspressoMethods.hasBoldText()));
     }
 }
