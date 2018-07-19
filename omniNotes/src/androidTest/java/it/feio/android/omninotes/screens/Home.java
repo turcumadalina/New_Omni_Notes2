@@ -1,6 +1,7 @@
 package it.feio.android.omninotes.screens;
 
 import it.feio.android.omninotes.R;
+import it.feio.android.omninotes.helpers.Constants;
 import it.feio.android.omninotes.helpers.Methods;
 
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
@@ -29,11 +30,11 @@ public class Home {
     }
 
     public static boolean isCheckListAboveTextNote() {
-        return Methods.isFirstObjectAboveSecondObject(withId(R.id.fab_checklist), withText("Text note"));
+        return Methods.isFirstObjectAboveSecondObject(withId(R.id.fab_checklist), withText(Constants.TEXT_NOTE));
     }
 
     public static boolean isCheckListBelowPhoto() {
-        return Methods.isFirstObjectBelowSecondObject(withId(R.id.fab_checklist), withText("Photo"));
+        return Methods.isFirstObjectBelowSecondObject(withId(R.id.fab_checklist), withText(Constants.PHOTO));
     }
 
     public static boolean isPicturePhotoAbovePictureCheckList() {

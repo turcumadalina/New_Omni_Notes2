@@ -71,7 +71,7 @@ public class AddTextNote {
         Methods.performClick(withContentDescription(Constants.DRAWER_OPEN));
     }
 
-    public static boolean isContentDescendantOfLinearLayout() {
+    public static boolean isContentBoxDescendantOfLinearLayout() {
         Matcher<View> addReminder = allOf(withId(R.id.detail_content), isDescendantOfA(withParent(withParent(withParent(withId(R.id.content_wrapper))))));
         return Methods.isObjectDisplayed(addReminder);
     }
@@ -81,7 +81,7 @@ public class AddTextNote {
         return Methods.isObjectDisplayed(addReminder);
     }
 
-    public static boolean isContentSiblingWithAddReminder() {
+    public static boolean isContentParentSiblingWithAddReminderParent() {
         Matcher<View> contentSiblingAddReminder = allOf(withChild(withId(R.id.detail_content)), hasSibling(withId(R.id.reminder_layout)));
         return Methods.isObjectDisplayed(contentSiblingAddReminder);
     }

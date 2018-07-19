@@ -32,14 +32,13 @@ public class AppointmentDetailsTest extends EspressoTestBase {
         // Verify: The suggestive picture of "Photo" text is above "Checklist" suggestive picture
         assertTrue("PicturePhoto is not above PictureCheckList", Home.isPicturePhotoAbovePictureCheckList());
 
-
         // Step: Click "Text note" button
         Home.clickTextNoteButton();
 
         // Verify: "Content" and "Add reminder" are descendant of a LinearLayout and they are siblings
-        assertTrue("Content is not descendant of Linear Layout", AddTextNote.isContentDescendantOfLinearLayout());
+        assertTrue("Content is not descendant of Linear Layout", AddTextNote.isContentBoxDescendantOfLinearLayout());
         assertTrue("Add Reminder is not descendant of Linear Layout", AddTextNote.isAddReminderDescendantOfLinearLayout());
-        assertTrue("Content and Add reminder are not siblings", AddTextNote.isContentSiblingWithAddReminder());
+        assertTrue("Content and Add reminder are not siblings", AddTextNote.isContentParentSiblingWithAddReminderParent());
 
         // Step: Click "Title" container
         AddTextNote.clickTitleContainer();

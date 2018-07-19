@@ -22,7 +22,7 @@ public class Matchers {
         return new TypeSafeMatcher<View>() {
             @Override
             public void describeTo(Description description) {
-                description.appendText("with " + childPosition + " child view of type parentMatcher");
+                description.appendText(Constants.WITH + " " + childPosition + " " + Constants.CHILD_VIEW_OF_TYPE_PARENTMATCHER);
             }
 
             @Override
@@ -30,7 +30,6 @@ public class Matchers {
                 if (!(view.getParent() instanceof ViewGroup)) {
                     return parentMatcher.matches(view.getParent());
                 }
-
                 ViewGroup group = (ViewGroup) view.getParent();
                 return parentMatcher.matches(view.getParent()) && group.getChildAt(childPosition).equals(view);
             }
