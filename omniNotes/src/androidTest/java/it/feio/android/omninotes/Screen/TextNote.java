@@ -39,7 +39,7 @@ public class TextNote {
         HelpersMethods.clickAction(withText(R.string.trash));
     }
 
-    public static void addRandomStringText() {
+    public static void addRandomText() {
         TextNote.clickAddButton();
         TextNote.clickTextNoteButton();
         TextNote.clickTitleBox();
@@ -49,7 +49,7 @@ public class TextNote {
         TextNote.clickReturnButton();
     }
 
-    public static void addSpecificStringText() {
+    public static void addSpecificText() {
         TextNote.clickAddButton();
         TextNote.clickTextNoteButton();
         TextNote.clickTitleBox();

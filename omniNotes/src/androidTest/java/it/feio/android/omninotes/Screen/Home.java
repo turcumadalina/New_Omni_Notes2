@@ -12,11 +12,11 @@ import static org.hamcrest.Matchers.allOf;
 
 public class Home {
     public static boolean isMenuSortInTheRightOfSearch() {
-        return HelpersMethods.isFirstMatcherToTheRightOfSecondMatcher(withId(R.id.menu_sort), withId(R.id.menu_search));
+        return HelpersMethods.isFirstObjectToTheRightOfSecondObject(withId(R.id.menu_sort), withId(R.id.menu_search));
     }
 
     public static boolean isMenuSortInTheLeftOfMoreOptions() {
-        return HelpersMethods.isFirstMatcherToTheLeftOfSecondMatcher(withId(R.id.menu_sort), withContentDescription(Constants.MORE_OPTIONS));
+        return HelpersMethods.isFirstObjectToTheLeftOfSecondObject(withId(R.id.menu_sort), withContentDescription(Constants.MORE_OPTIONS));
     }
 
     public static void clickSearchButton() {

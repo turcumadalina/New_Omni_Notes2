@@ -33,7 +33,7 @@ public class HelpersMethods extends EspressoMethods {
         onView(matcher).perform(click());
     }
 
-    public static boolean isFirstMatcherToTheLeftOfSecondMatcher(Matcher<View> matcher1, Matcher<View> matcher2) {
+    public static boolean isFirstObjectToTheLeftOfSecondObject(Matcher<View> matcher1, Matcher<View> matcher2) {
         try {
             onView(matcher1).check(isLeftOf(matcher2));
             return true;
@@ -43,7 +43,7 @@ public class HelpersMethods extends EspressoMethods {
         }
     }
 
-    public static boolean isFirstMatcherToTheRightOfSecondMatcher(Matcher<View> matcher1, Matcher<View> matcher2) {
+    public static boolean isFirstObjectToTheRightOfSecondObject(Matcher<View> matcher1, Matcher<View> matcher2) {
         try {
             onView(matcher1).check(isRightOf(matcher2));
             return true;
@@ -57,21 +57,21 @@ public class HelpersMethods extends EspressoMethods {
         final String AB = Constants.ALPHANUMERIC_RANDOM_STRING;
 
         SecureRandom random = new SecureRandom();
-        StringBuilder sb = new StringBuilder(newItemStringLength);
+        StringBuilder stringBuilder = new StringBuilder(newItemStringLength);
 
         for (int i = 0; i < newItemStringLength; i++) {
-            sb.append(AB.charAt(random.nextInt(AB.length())));
+            stringBuilder.append(AB.charAt(random.nextInt(AB.length())));
         }
 
-        return sb.toString();
+        return stringBuilder.toString();
     }
 
     public static void typeNewItemAction(int xItemsAdded, int xPositionToAddNewText) {
         for (int i = 0; i <= xItemsAdded; i++) {
             if (i == xPositionToAddNewText) {
-                TextNote.addSpecificStringText();
+                TextNote.addSpecificText();
             } else {
-                TextNote.addRandomStringText();
+                TextNote.addRandomText();
             }
         }
     }

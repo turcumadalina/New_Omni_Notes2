@@ -54,4 +54,3 @@ public class ToolbarValidationTest extends StartTheApplication {
         assertFalse("My note text is not displayed.", Home.isMyNoteTextVisible());
     }
 }
-
