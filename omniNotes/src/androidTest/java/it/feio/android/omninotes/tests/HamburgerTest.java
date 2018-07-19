@@ -74,5 +74,20 @@ public class HamburgerTest extends EspressoTestBase {
 
         // Verify: List View has one child
         assertTrue("List View has more then one child", Trash.isListViewWithOneChild());
+
+        // Step: Click on more options button
+        Trash.clickOnMoreOptionButton();
+
+        // Step: Click on empty trash button
+        Trash.clickOnEmptyTrashButton();
+
+        // Step: Click ok button
+        Trash.clickOkButton();
+
+        // Wait 2 seconds
+        Thread.sleep(2000);
+
+        // Verify: Note with title Pay the bills is NOT displayed"
+        assertFalse("Note with title pay the bills is stiil visible", Trash.isNoteWithTitlePayTheBillsDisplayed());
     }
 }
