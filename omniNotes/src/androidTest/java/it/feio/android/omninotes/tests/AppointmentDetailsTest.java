@@ -6,6 +6,7 @@ import it.feio.android.omninotes.helpers.EspressoTestBase;
 import it.feio.android.omninotes.screens.AddTextNote;
 import it.feio.android.omninotes.screens.Home;
 
+import static junit.framework.Assert.assertEquals;
 import static junit.framework.Assert.assertTrue;
 
 public class AppointmentDetailsTest extends EspressoTestBase {
@@ -40,6 +41,11 @@ public class AppointmentDetailsTest extends EspressoTestBase {
         assertTrue("Add Reminder is not descendant of Linear Layout", AddTextNote.isAddReminderDescendantOfLinearLayout());
         assertTrue("Content and Add reminder are not siblings", AddTextNote.isContentParentSiblingWithAddReminderParent());
 
+        // Verify: "Content Container text has a font size of 16sp;
+        assertEquals("Content text doesn't have a 16sp font size", 16, AddTextNote.getExpectedTextSizeOfContentContainer());
+        //Same result, different approach
+        assertTrue("Content text doesn't have a 16sp font size", AddTextNote.isFontSizeOfContentContainerExpectedSize());
+
         // Step: Click "Title" container
         AddTextNote.clickTitleContainer();
 
@@ -49,8 +55,13 @@ public class AppointmentDetailsTest extends EspressoTestBase {
         // Step:Click "Content" container
         AddTextNote.clickContentContainer();
 
-        // Step: Type "Tuesday, 17 Jul 2018, 18:30."
+        // Step: Type "Tuesday, 17 Jul 2018, 18:30." 3 times
         AddTextNote.typeDateAndTime();
+
+        //Verify: Content container has 2 lines of text
+        assertEquals("Content container doesn't have 2 lines of text", 2, AddTextNote.getExpectedNoOfLinesOfContentContainer());
+        //Same result, different approach
+        assertTrue("Content container doesn't have 2 lines of text", AddTextNote.isContentContainerTextOnExpectedNoOfLines());
 
         // Step: Click on "Add reminder"
         AddTextNote.clickAddReminder();

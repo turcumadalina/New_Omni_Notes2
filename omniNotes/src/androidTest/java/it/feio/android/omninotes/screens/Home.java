@@ -2,7 +2,7 @@ package it.feio.android.omninotes.screens;
 
 import it.feio.android.omninotes.R;
 import it.feio.android.omninotes.helpers.Constants;
-import it.feio.android.omninotes.helpers.Methods;
+import it.feio.android.omninotes.helpers.HelperMethods;
 
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
@@ -10,42 +10,42 @@ import static android.support.test.espresso.matcher.ViewMatchers.withText;
 public class Home {
 
     public static boolean isNothingHereDisplayed() {
-        return Methods.isObjectDisplayed(withId(R.id.empty_list));
+        return HelperMethods.isObjectDisplayed(withId(R.id.empty_list));
     }
 
     public static boolean isNothingHereClickable() {
-        return Methods.isObjectClickable(withId(R.id.empty_list));
+        return HelperMethods.isObjectClickable(withId(R.id.empty_list));
     }
 
     public static boolean isAddButtonDisplayed() {
-        return Methods.isObjectDisplayed(withId(R.id.fab_expand_menu_button));
+        return HelperMethods.isObjectDisplayed(withId(R.id.fab_expand_menu_button));
     }
 
     public static boolean isAddButtonClickable() {
-        return Methods.isObjectClickable(withId(R.id.fab_expand_menu_button));
+        return HelperMethods.isObjectClickable(withId(R.id.fab_expand_menu_button));
     }
 
     public static void clickAddButton() {
-        Methods.performClick(withId(R.id.fab_expand_menu_button));
+        HelperMethods.performClick(withId(R.id.fab_expand_menu_button));
     }
 
     public static boolean isCheckListAboveTextNote() {
-        return Methods.isFirstObjectAboveSecondObject(withId(R.id.fab_checklist), withText(Constants.TEXT_NOTE));
+        return HelperMethods.isFirstObjectAboveSecondObject(withText(Constants.CHECKLIST), withText(Constants.TEXT_NOTE));
     }
 
     public static boolean isCheckListBelowPhoto() {
-        return Methods.isFirstObjectBelowSecondObject(withId(R.id.fab_checklist), withText(Constants.PHOTO));
+        return HelperMethods.isFirstObjectBelowSecondObject(withText(Constants.CHECKLIST), withText(Constants.PHOTO));
     }
 
     public static boolean isPicturePhotoAbovePictureCheckList() {
-        return Methods.isFirstObjectAboveSecondObject(withId(R.id.fab_camera), withId(R.id.fab_checklist));
+        return HelperMethods.isFirstObjectAboveSecondObject(withId(R.id.fab_camera), withId(R.id.fab_checklist));
     }
 
     public static void clickTextNoteButton() {
-        Methods.performClick(withId(R.id.fab_note));
+        HelperMethods.performClick(withId(R.id.fab_note));
     }
 
     public static boolean isReminderSetDisplayed() {
-        return Methods.isObjectDisplayed(withId(R.id.card_layout));
+        return HelperMethods.isObjectDisplayed(withId(R.id.card_layout));
     }
 }
