@@ -9,14 +9,17 @@ import junit.framework.AssertionFailedError;
 
 import org.hamcrest.Matcher;
 
+import java.util.Random;
+
 import it.feio.android.omninotes.R;
 
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
+import static android.support.test.espresso.action.ViewActions.pressKey;
 import static android.support.test.espresso.action.ViewActions.swipeLeft;
 import static android.support.test.espresso.action.ViewActions.typeText;
-import static android.support.test.espresso.assertion.PositionAssertions.isBelow;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
+import static android.support.test.espresso.matcher.ViewMatchers.isClickable;
 import static android.support.test.espresso.matcher.ViewMatchers.isCompletelyDisplayed;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 
@@ -30,7 +33,7 @@ public class HelpersMethods {
         onView(matcher).perform(typeText(textToBeTyped));
     }
 
-    public static boolean isUIObjectIsDisplayed(Matcher<View> matcher) {
+    public static boolean isUIObjectDisplayed(Matcher<View> matcher) {
         try {
             onView(matcher).check(matches(isCompletelyDisplayed()));
             return true;
@@ -54,5 +57,36 @@ public class HelpersMethods {
 
     public static int getNoOfChildsFromListView() {
         return EspressoMatchers.getListViewChildCount(withId(R.id.list));
+    }
+
+    private static String generatingRandomText() {
+        int leftLimit = 97; // letter 'a'
+        int rightLimit = 122; // letter 'z'
+        int targetStringLength = 10;
+        Random random = new Random();
+        StringBuilder buffer = new StringBuilder(targetStringLength);
+        for (int i = 0; i < targetStringLength; i++) {
+            int randomLimitedInt = leftLimit + (int)
+                    (random.nextFloat() * (rightLimit - leftLimit + 1));
+            buffer.append((char) randomLimitedInt);
+        }
+        return buffer.toString();
+    }
+
+    public static void addItemsContent(Matcher<View> matcher, int contentTextLines) {
+        String noteContent = generatingRandomText();
+        for (int i = 0; i < contentTextLines; i++) {
+            onView(matcher).perform(typeText(noteContent));
+            onView(matcher).perform(pressKey(66));
+        }
+    }
+
+    public static boolean isUIObjectIsClickable(Matcher<View> matcher) {
+        try {
+            onView(matcher).check(matches(isClickable()));
+            return true;
+        } catch (NoMatchingViewException | AppNotIdleException | AssertionFailedError | NoMatchingRootException e) {
+            return false;
+        }
     }
 }

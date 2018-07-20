@@ -11,7 +11,7 @@ import static android.support.test.espresso.matcher.ViewMatchers.withText;
 public class Trash {
 
     public static boolean isNoteWithTitlePayTheBillsDisplayed() {
-        return HelpersMethods.isUIObjectIsDisplayed(withText(Constants.PAY_THE_BILLS));
+        return HelpersMethods.isUIObjectDisplayed(withText(Constants.PAY_THE_BILLS));
     }
 
     public static void clickOnMoreOptionButton() {

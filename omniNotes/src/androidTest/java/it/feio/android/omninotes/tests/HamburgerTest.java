@@ -24,10 +24,19 @@ public class HamburgerTest extends EspressoTestBase {
         Home.clickTextNoteButton();
 
         // Step: Add note with title "Pay the bills"
-        Home.addPayTheBillsNote();
+        Home.addPayTheBillsNoteTitle();
+
+        // Step: Add content to the note with title "Pay the bills"
+        Home.addPayBillsNoteContent();
 
         // Step: Click return button
         Home.clickReturnButton();
+
+        // Verify: Note content description has 2 lines of text
+        assertTrue("Note content description has more/less text lines", Home.isNoteContentTextLines());
+
+        // Verify: Number of text lines from Note content desctiption
+        assertEquals("There is not expected number of text lines ", 2, Home.getNoOfTextLines());
 
         // Step: Delete the note with title "Pay the bills"
         Home.deleteNoteWithTitlePayTheBills();

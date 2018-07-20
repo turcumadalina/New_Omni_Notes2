@@ -8,7 +8,7 @@ import static android.support.test.espresso.matcher.ViewMatchers.withText;
 public class Archives {
 
     public static boolean isNoteWithTextPayTheBilsDisplayed() {
-        return HelpersMethods.isUIObjectIsDisplayed(withText(Constants.PAY_THE_BILLS));
+        return HelpersMethods.isUIObjectDisplayed(withText(Constants.PAY_THE_BILLS));
     }
 
     public static void removeNoteWithTitlePayTheBills() {

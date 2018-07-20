@@ -15,7 +15,7 @@ import static org.hamcrest.Matchers.instanceOf;
 public class NavigationDrawer {
 
     public static boolean isArchiveButtonDisplayedAndHasSiblingTheNoteButton() {
-        return HelpersMethods.isUIObjectIsDisplayed(allOf(withId(R.id.navigation_drawer),
+        return HelpersMethods.isUIObjectDisplayed(allOf(withId(R.id.navigation_drawer),
                 hasDescendant(allOf(instanceOf(LinearLayout.class), hasDescendant(allOf(withText(R.string.archive), withId(R.id.title))),
                         hasSibling(allOf(instanceOf(LinearLayout.class), hasDescendant(allOf(withText(R.string.title_item_list), withId(R.id.title)))))))));
     }
@@ -32,7 +32,7 @@ public class NavigationDrawer {
 //    }
 
 //    public static boolean isArchiveButtonOnNavigationDrawer() {
-//        return HelpersMethods.isUIObjectIsDisplayed(withText(R.string.archive));
+//        return HelpersMethods.isUIObjectDisplayed(withText(R.string.archive));
 //    }
 
     public static void clickOnTrashButton() {
