@@ -6,7 +6,9 @@ import org.hamcrest.Matcher;
 
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
+import static android.support.test.espresso.action.ViewActions.longClick;
 import static android.support.test.espresso.action.ViewActions.pressImeActionButton;
+import static android.support.test.espresso.action.ViewActions.swipeRight;
 import static android.support.test.espresso.action.ViewActions.typeText;
 import static android.support.test.espresso.assertion.PositionAssertions.isAbove;
 import static android.support.test.espresso.assertion.PositionAssertions.isBelow;
@@ -102,5 +104,9 @@ public class HelperMethods {
         } catch (Exception e) {
             return false;
         }
+    }
+
+    public static void deleteElement(Matcher<View> matcher) {
+        onView(matcher).perform(swipeRight());
     }
 }

@@ -1,5 +1,6 @@
 package it.feio.android.omninotes.screens;
 
+import android.support.test.espresso.action.ViewActions;
 import android.view.View;
 
 import org.hamcrest.Matcher;
@@ -9,12 +10,17 @@ import it.feio.android.omninotes.helpers.Constants;
 import it.feio.android.omninotes.helpers.EspressoMatchers;
 import it.feio.android.omninotes.helpers.HelperMethods;
 
+import static android.support.test.espresso.Espresso.onView;
+import static android.support.test.espresso.action.ViewActions.*;
+import static android.support.test.espresso.action.ViewActions.click;
+import static android.support.test.espresso.action.ViewActions.typeText;
 import static android.support.test.espresso.matcher.ViewMatchers.hasSibling;
 import static android.support.test.espresso.matcher.ViewMatchers.isDescendantOfA;
 import static android.support.test.espresso.matcher.ViewMatchers.withChild;
 import static android.support.test.espresso.matcher.ViewMatchers.withContentDescription;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withParent;
+import static android.support.test.espresso.matcher.ViewMatchers.withText;
 import static org.hamcrest.core.AllOf.allOf;
 
 public class AddTextNote {
@@ -108,5 +114,31 @@ public class AddTextNote {
 
     public static void typePayTheBills() {
         HelperMethods.typeSomeTextANoOfTimes(withId(R.id.detail_content), Constants.PAY_THE_BILLS, 1);
+    }
+
+    public static void searchForMyNote() {
+        HelperMethods.performClick(allOf(withId(R.id.menu_search), withContentDescription(Constants.SEARCH)));
+        HelperMethods.typeSomeText(withId(R.id.search_src_text), Constants.MY_NOTE);
+        pressImeActionButton();
+    }
+
+    public static boolean isMyNoteDisplayed() {
+        return HelperMethods.isObjectDisplayed(allOf(withId(R.id.note_title), withText(Constants.MY_NOTE)));
+    }
+
+    public static void clickCollapseButton() {
+        HelperMethods.performClick(withContentDescription(Constants.COLLAPSE));
+    }
+
+    public static void clickOnMyNote() {
+        HelperMethods.performClick(allOf(withId(R.id.note_title), withText(Constants.MY_NOTE)));
+    }
+
+    public static void clickMoreOptions() {
+        HelperMethods.performClick(allOf(withContentDescription(Constants.MORE_OPTIONS), isDescendantOfA(withId(R.id.toolbar))));
+    }
+
+    public static void clickTrash() {
+        HelperMethods.performClick(withChild(allOf(withId(R.id.title), withText(Constants.TRASH))));
     }
 }

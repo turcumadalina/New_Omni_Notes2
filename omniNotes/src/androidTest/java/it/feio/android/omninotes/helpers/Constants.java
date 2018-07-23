@@ -11,4 +11,12 @@ public class Constants {
     public static String PHOTO = "Photo";
     public static String CHECKLIST = "Checklist";
     public static String PAY_THE_BILLS = "Pay the bills";
+    public static String ARCHIVE = "Archive";
+    public static String NOTES = "Notes";
+    public static String TRASH = "Trash";
+    public static String MORE_OPTIONS = "More options";
+    public static String EMPTY_TRASH = "Empty trash";
+    public static String MY_NOTE = "My note";
+    public static String SEARCH = "Search";
+    public static String COLLAPSE = "Collapse";
 }

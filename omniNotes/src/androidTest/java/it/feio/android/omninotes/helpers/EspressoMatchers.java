@@ -7,13 +7,17 @@ import android.support.test.espresso.action.GeneralClickAction;
 import android.support.test.espresso.action.Press;
 import android.support.test.espresso.action.Tap;
 import android.support.test.espresso.matcher.BoundedMatcher;
+import android.support.test.espresso.matcher.ViewMatchers;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
 import org.hamcrest.TypeSafeMatcher;
+
+import java.security.SecureRandom;
 
 import it.feio.android.omninotes.R;
 
@@ -132,4 +136,36 @@ public class EspressoMatchers {
             }
         };
     }
+
+    public static int getListViewChildCount(Matcher<View> matcher) {
+        final int[] count = {0};
+        onView(matcher).perform(new ViewAction() {
+            @Override
+            public Matcher<View> getConstraints() {
+                return ViewMatchers.isAssignableFrom(ListView.class);
+            }
+
+            @Override
+            public String getDescription() {
+                return "getting child count";
+            }
+
+            @Override
+            public void perform(UiController uiController, View view) {
+                ListView lv = (ListView) view;
+                count[0] = lv.getChildCount();
+            }
+        });
+        return count[0];
+    }
+    public static String generateRandomString(int stringLength) {
+        final String AB = "abcdefghijklmnopqrstuvwxyz";
+        SecureRandom rnd = new SecureRandom();
+        StringBuilder sb = new StringBuilder(stringLength);
+        for (int i = 0; i < stringLength; i++)
+            sb.append(AB.charAt(rnd.nextInt(AB.length())));
+        return sb.toString();
+    }
+
+
 }
