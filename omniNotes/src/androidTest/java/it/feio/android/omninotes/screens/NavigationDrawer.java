@@ -31,11 +31,11 @@ public class NavigationDrawer {
 //        return HelpersMethods.isUIObjectBelowAnotherObject(withText("Trash"), withText("Notes"));
 //    }
 
-//    public static boolean isArchiveButtonOnNavigationDrawer() {
-//        return HelpersMethods.isUIObjectDisplayed(withText(R.string.archive));
-//    }
+    public static boolean isArchiveButtonOnNavigationDrawer() {
+        return HelpersMethods.isUIObjectDisplayed(allOf(withId(R.id.title), withText(R.string.archive)));
+    }
 
     public static void clickOnTrashButton() {
-        HelpersMethods.clickUIElement(withText(R.string.trash));
+        HelpersMethods.clickUIElement(allOf(withId(R.id.title), withText(R.string.trash)));
     }
 }

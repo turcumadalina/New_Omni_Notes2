@@ -7,6 +7,7 @@ import it.feio.android.omninotes.helpers.HelpersMethods;
 import it.feio.android.omninotes.screens.Archives;
 import it.feio.android.omninotes.screens.Home;
 import it.feio.android.omninotes.screens.NavigationDrawer;
+import it.feio.android.omninotes.screens.TextNote;
 import it.feio.android.omninotes.screens.Trash;
 
 import static junit.framework.Assert.assertEquals;
@@ -24,13 +25,13 @@ public class HamburgerTest extends EspressoTestBase {
         Home.clickTextNoteButton();
 
         // Step: Add note with title "Pay the bills"
-        Home.addPayTheBillsNoteTitle();
+        TextNote.addPayTheBillsNoteTitle();
 
         // Step: Add content to the note with title "Pay the bills"
-        Home.addPayBillsNoteContent();
+        TextNote.addPayBillsNoteContent();
 
         // Step: Click return button
-        Home.clickReturnButton();
+        TextNote.clickReturnButton();
 
         // Verify: Note content description has 2 lines of text
         assertTrue("Note content description has more/less text lines", Home.isNoteContentTextLines());
@@ -75,7 +76,7 @@ public class HamburgerTest extends EspressoTestBase {
 //        assertTrue("Trash button is not below Notes button", NavigationDrawer.isButtonWithNameTrashDisplayedBelowTheButtonWithNameNotes());
 
         // Verify: The button with name Archive is NOT displayed on navigation drawer
-//        assertFalse("Archive button is still displayed on mavigation drawer", NavigationDrawer.isArchiveButtonOnNavigationDrawer());
+        assertFalse("Archive button is still displayed on mavigation drawer", NavigationDrawer.isArchiveButtonOnNavigationDrawer());
 
         // Step: Click on trash button
         NavigationDrawer.clickOnTrashButton();

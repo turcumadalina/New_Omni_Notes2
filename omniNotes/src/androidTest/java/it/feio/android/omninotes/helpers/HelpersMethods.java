@@ -18,6 +18,10 @@ import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.action.ViewActions.pressKey;
 import static android.support.test.espresso.action.ViewActions.swipeLeft;
 import static android.support.test.espresso.action.ViewActions.typeText;
+import static android.support.test.espresso.assertion.PositionAssertions.isAbove;
+import static android.support.test.espresso.assertion.PositionAssertions.isBelow;
+import static android.support.test.espresso.assertion.PositionAssertions.isLeftOf;
+import static android.support.test.espresso.assertion.PositionAssertions.isRightOf;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import static android.support.test.espresso.matcher.ViewMatchers.isClickable;
 import static android.support.test.espresso.matcher.ViewMatchers.isCompletelyDisplayed;
@@ -84,6 +88,42 @@ public class HelpersMethods {
     public static boolean isUIObjectIsClickable(Matcher<View> matcher) {
         try {
             onView(matcher).check(matches(isClickable()));
+            return true;
+        } catch (NoMatchingViewException | AppNotIdleException | AssertionFailedError | NoMatchingRootException e) {
+            return false;
+        }
+    }
+
+    public static boolean isUIObjectAboveAnotherObject(Matcher<View> matcher1, Matcher<View> matcher2) {
+        try {
+            onView(matcher1).check(isAbove(matcher2));
+            return true;
+        } catch (NoMatchingViewException | AppNotIdleException | AssertionFailedError | NoMatchingRootException e) {
+            return false;
+        }
+    }
+
+    public static boolean isUIObjectBelowAnotherObject(Matcher<View> matcher1, Matcher<View> matcher2) {
+        try {
+            onView(matcher1).check(isBelow(matcher2));
+            return true;
+        } catch (NoMatchingViewException | AppNotIdleException | AssertionFailedError | NoMatchingRootException e) {
+            return false;
+        }
+    }
+
+    public static boolean isUIObjectRightOfAnotherUIObject(Matcher<View> matcher1, Matcher<View> matcher2) {
+        try {
+            onView(matcher1).check(isRightOf(matcher2));
+            return true;
+        } catch (NoMatchingViewException | AppNotIdleException | AssertionFailedError | NoMatchingRootException e) {
+            return false;
+        }
+    }
+
+    public static boolean isUIObjectLeftOfAnotherUIObject(Matcher<View> matcher1, Matcher<View> matcher2) {
+        try {
+            onView(matcher1).check(isLeftOf(matcher2));
             return true;
         } catch (NoMatchingViewException | AppNotIdleException | AssertionFailedError | NoMatchingRootException e) {
             return false;

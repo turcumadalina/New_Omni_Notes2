@@ -21,18 +21,6 @@ public class Home {
         HelpersMethods.clickUIElement(withId(R.id.fab_note));
     }
 
-    public static void addPayTheBillsNoteTitle() {
-        HelpersMethods.typeItemText(withId(R.id.detail_title), Constants.PAY_THE_BILLS);
-    }
-
-    public static void addPayBillsNoteContent() {
-        HelpersMethods.addItemsContent(withId(R.id.detail_content), 4);
-    }
-
-    public static void clickReturnButton() {
-        HelpersMethods.clickUIElement(withContentDescription(Constants.DRAWER_OPEN));
-    }
-
     public static void deleteNoteWithTitlePayTheBills() {
         HelpersMethods.deleteUIItem(withText(Constants.PAY_THE_BILLS));
     }
@@ -52,5 +40,29 @@ public class Home {
     // This is for Appointement details test
     public static boolean isImageWithNothingHereTextDisplayed() {
         return HelpersMethods.isUIObjectDisplayed(withId(R.id.empty_list));
+    }
+
+    public static boolean isImageWithNothingHereTexClickable() {
+        return HelpersMethods.isUIObjectIsClickable(withId(R.id.empty_list));
+    }
+
+    public static boolean isAddButtonDisplayed() {
+        return HelpersMethods.isUIObjectDisplayed(withId(R.id.fab_expand_menu_button));
+    }
+
+    public static boolean isAddButtonClickable() {
+        return HelpersMethods.isUIObjectIsClickable(withId(R.id.fab_expand_menu_button));
+    }
+
+    public static boolean isChecklistButtonBelowPhotoButton() {
+        return HelpersMethods.isUIObjectBelowAnotherObject(withText(R.string.checklist), withText(R.string.photo));
+    }
+
+    public static boolean isChecklistButtonAboveTextNoteButton() {
+        return HelpersMethods.isUIObjectAboveAnotherObject(withText(R.string.checklist), withText(R.string.text_note));
+    }
+
+    public static boolean isPhotoButtonImageAboveChecklistButtonImage() {
+        return HelpersMethods.isUIObjectAboveAnotherObject(withId(R.id.fab_camera), withId(R.id.fab_checklist));
     }
 }
