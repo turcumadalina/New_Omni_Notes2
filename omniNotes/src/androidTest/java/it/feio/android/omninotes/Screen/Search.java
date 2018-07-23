@@ -9,7 +9,7 @@ import static android.support.test.espresso.matcher.ViewMatchers.withId;
 
 public class Search {
     public static void clickSearchReturn() {
-        HelpersMethods.clickAction(withContentDescription(Constants.COLLAPSE));
+        HelpersMethods.clickAction(withContentDescription(Constants.DRAWER_OPEN));
     }
 
     public static void typeMyNoteText() {

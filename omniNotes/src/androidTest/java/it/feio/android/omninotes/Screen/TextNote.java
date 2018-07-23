@@ -36,4 +36,32 @@ public class TextNote {
     public static void clickTrashButton() {
         HelpersMethods.clickAction(withText(R.string.trash));
     }
+
+    public static void typePayTheBillsText() {
+        HelpersMethods.typeTextAction(withId(R.id.detail_title), Constants.PAY_THE_BILLS);
+    }
+
+    public static void deleteTheNote() {
+        HelpersMethods.swipeLeftAction(withText(Constants.PAY_THE_BILLS));
+    }
+
+    public static void clickOnHamburgerButton() {
+        HelpersMethods.clickAction(withContentDescription(Constants.DRAWER_OPEN));
+    }
+
+    public static boolean isChecklistTextAboveTextNoteText() {
+        return HelpersMethods.isFirstObjectAboveOfSecondObject(withText(Constants.CHECKLIST), withText(Constants.TEXT_NOTE));
+    }
+
+    public static boolean isChecklistTextBelowPhotoText() {
+        return HelpersMethods.isFirstObjectBelowOfSecondObject(withText(Constants.CHECKLIST), withText(Constants.PHOTO));
+    }
+
+    public static void typeAppointmentName() {
+        HelpersMethods.typeTextAction(withId(R.id.detail_title), Constants.DOCTOR_APPOINTMENT);
+    }
+
+    public static void typeAppointmentContent() {
+        HelpersMethods.typeTextAction(withId(R.id.detail_content), Constants.TUESDAY_17_JUL_2018_18_30);
+    }
 }

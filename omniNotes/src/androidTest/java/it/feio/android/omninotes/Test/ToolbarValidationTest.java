@@ -27,7 +27,9 @@ public class ToolbarValidationTest extends StartTheApplication {
 
         // Step: Add 5 items (1 of them with title "My note").
         HelpersMethods.typeNewItemAction(4, 4);
-        Home.isTextStyleBold();
+
+        // Step: Verify if content has bold style.
+        assertTrue("Content text has NOT bold style.", Home.isTextStyleBold());
 
         // Expected Result: In the fragment_container there are 5 items.
         assertEquals("There are more/less then 5 items in fragment container.", 5, EspressoMethods.getChildCountFromListView(withId(R.id.list)));
@@ -54,5 +56,4 @@ public class ToolbarValidationTest extends StartTheApplication {
         // Expected Result: Item with text " My Note" is not displayed.
         assertFalse("My note text is not displayed.", Home.isMyNoteTextVisible());
     }
-
 }
