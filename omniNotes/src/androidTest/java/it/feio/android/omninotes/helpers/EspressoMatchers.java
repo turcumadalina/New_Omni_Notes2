@@ -158,6 +158,7 @@ public class EspressoMatchers {
         });
         return count[0];
     }
+
     public static String generateRandomString(int stringLength) {
         final String AB = "abcdefghijklmnopqrstuvwxyz";
         SecureRandom rnd = new SecureRandom();

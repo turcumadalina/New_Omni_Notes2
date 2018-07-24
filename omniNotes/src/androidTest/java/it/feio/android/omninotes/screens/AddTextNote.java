@@ -1,6 +1,5 @@
 package it.feio.android.omninotes.screens;
 
-import android.support.test.espresso.action.ViewActions;
 import android.view.View;
 
 import org.hamcrest.Matcher;
@@ -10,10 +9,7 @@ import it.feio.android.omninotes.helpers.Constants;
 import it.feio.android.omninotes.helpers.EspressoMatchers;
 import it.feio.android.omninotes.helpers.HelperMethods;
 
-import static android.support.test.espresso.Espresso.onView;
-import static android.support.test.espresso.action.ViewActions.*;
-import static android.support.test.espresso.action.ViewActions.click;
-import static android.support.test.espresso.action.ViewActions.typeText;
+import static android.support.test.espresso.action.ViewActions.pressImeActionButton;
 import static android.support.test.espresso.matcher.ViewMatchers.hasSibling;
 import static android.support.test.espresso.matcher.ViewMatchers.isDescendantOfA;
 import static android.support.test.espresso.matcher.ViewMatchers.withChild;
@@ -140,5 +136,16 @@ public class AddTextNote {
 
     public static void clickTrash() {
         HelperMethods.performClick(withChild(allOf(withId(R.id.title), withText(Constants.TRASH))));
+    }
+
+    public static boolean isAllInListItemsDisplayed(int expectedNoOfItems) {
+        try {
+            for (int i = 0; i < expectedNoOfItems; i++) {
+                HelperMethods.isObjectDisplayed(EspressoMatchers.nthChildOf(withId(R.id.list), i));
+            }
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
     }
 }

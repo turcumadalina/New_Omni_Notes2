@@ -34,7 +34,7 @@ public class ToolbarValidationTest extends EspressoTestBase {
         AddTextNote.clickCollapseButton();
 
         // Verify: All 5 items are displayed.
-
+        assertTrue("All 5 items are not displayed", AddTextNote.isAllInListItemsDisplayed(5));
 
         // Step: Click on the item with text " My Note" and move it to trash (on more option click on "Trash").
         AddTextNote.clickOnMyNote();
