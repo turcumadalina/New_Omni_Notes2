@@ -20,4 +20,9 @@ public class Trash {
     public static void clickTheConfirmButton() {
         HelpersMethods.clickAction(withId(R.id.buttonDefaultPositive));
     }
+
+    public static boolean isPayTheBillsVisible() {
+        return HelpersMethods.isVisible(withText(Constants.PAY_THE_BILLS));
+    }
 }
+

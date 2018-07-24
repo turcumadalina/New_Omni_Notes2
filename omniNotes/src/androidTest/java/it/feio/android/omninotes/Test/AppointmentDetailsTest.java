@@ -37,8 +37,8 @@ public class AppointmentDetailsTest extends StartTheApplication {
         TextNote.clickTextNoteButton();
 
         // Expected Result: "Content" and "Add reminder" are descendent of a LinearLayout and their parents are siblings.
-        assertTrue("\"Content\" is NOT a descendent of a LinearLayout.", Home.isContentBoxDescendantOfALinearLayout());
-        assertTrue("\"Add reminder\" is NOT a descendent of a LinearLayout.", Home.isAddReminderDescendantOfALinearLayout());
+        assertTrue("\"Content\" is NOT a descendant of a LinearLayout.", Home.isContentBoxDescendantOfALinearLayout());
+        assertTrue("\"Add reminder\" is NOT a descendant of a LinearLayout.", Home.isAddReminderDescendantOfALinearLayout());
         assertTrue("The \"Content parent and the \"Add reminder\" parent are NOT siblings.", Home.isContentParentSiblingWithAddReminder());
 
         // Step 4. Click "Title" container and Type "Doctor appointment".

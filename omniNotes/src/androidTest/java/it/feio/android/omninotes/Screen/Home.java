@@ -87,4 +87,8 @@ public class Home {
     public static boolean isContentParentSiblingWithAddReminder() {
         return HelpersMethods.isVisible(allOf(withChild(withId(R.id.detail_content)), hasSibling(withId(R.id.reminder_layout))));
     }
+
+    public static boolean isArchiveTextVisible() {
+        return HelpersMethods.isVisible(withText(Constants.ARCHIVE));
+    }
 }

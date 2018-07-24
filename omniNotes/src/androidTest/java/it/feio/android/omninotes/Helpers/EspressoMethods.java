@@ -3,7 +3,6 @@ package it.feio.android.omninotes.Helpers;
 import android.support.test.espresso.Espresso;
 import android.support.test.espresso.UiController;
 import android.support.test.espresso.ViewAction;
-import android.support.test.espresso.matcher.ViewMatchers;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
@@ -14,6 +13,8 @@ import org.hamcrest.Description;
 import org.hamcrest.Matcher;
 import org.hamcrest.TypeSafeMatcher;
 
+import static android.support.test.espresso.matcher.ViewMatchers.isAssignableFrom;
+
 public class EspressoMethods {
 
     public static int getChildCountFromListView(Matcher<View> matcher) {
@@ -21,7 +22,7 @@ public class EspressoMethods {
         Espresso.onView(matcher).perform(new ViewAction() {
             @Override
             public Matcher<View> getConstraints() {
-                return ViewMatchers.isAssignableFrom(ListView.class);
+                return isAssignableFrom(ListView.class);
             }
 
             @Override
