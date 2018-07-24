@@ -4,6 +4,7 @@ import android.widget.LinearLayout;
 
 import it.feio.android.omninotes.R;
 import it.feio.android.omninotes.helpers.Constants;
+import it.feio.android.omninotes.helpers.EspressoMatchers;
 import it.feio.android.omninotes.helpers.HelpersMethods;
 
 import static android.support.test.espresso.matcher.ViewMatchers.hasSibling;
@@ -51,10 +52,13 @@ public class TextNote {
 
     public static void addReminderToTheTextNoteWithTitleDoctorAppointment() {
         HelpersMethods.clickUIElement(withId(R.id.datetime));
-
     }
 
-    public static void clickReminderDoneButton() {
+    public static void clickOnReminderDay() {
+        EspressoMatchers.clickUIObjectOnCoordinates(340, 830);
+    }
+
+    public static void clickDoneButton() {
         HelpersMethods.clickUIElement(withId(R.id.done));
     }
 

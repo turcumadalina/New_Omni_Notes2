@@ -35,7 +35,7 @@ public class AppointmentDetailsTest extends EspressoTestBase {
 
         // Verify: "Content" and "Add reminder" are descendent of a LinearLayout and their parents are siblings.
         assertTrue("Content and Add reminder are not descendents of a LynearLayout", TextNote.isContentAndAddReminderBoxesDescendantsOfALinearLayout());
-        assertTrue("", TextNote.isContentAndAddReminderParentsSibling());
+        assertTrue("Add reminder parents are not sibling", TextNote.isContentAndAddReminderParentsSibling());
 
         // Step: Add Text note with title Doctor appointment
         TextNote.addTextNoteWithTitleDoctorAppointment();
@@ -43,12 +43,14 @@ public class AppointmentDetailsTest extends EspressoTestBase {
         // Step: Add content to the Text note with title Doctor appointment
         TextNote.addTextNoteWithContentTuesday17Jul2018_18_30();
 
-        // Step: Click on Add reminder button and add a reminder for the date from "Content" container.
+        // Step: Click on Add reminder button
         TextNote.addReminderToTheTextNoteWithTitleDoctorAppointment();
-        // more on hear
+
+        // Step: Add a reminder for the date from "Content" container.
+        TextNote.clickOnReminderDay();
 
         // Step: Click Done button after setting the reminder
-        TextNote.clickReminderDoneButton();
+        TextNote.clickDoneButton();
 
         // Verify: The "Time picker" is displayed.
         assertTrue("The Time piker is not visible", TextNote.isTimePikerDisplayed());
@@ -60,10 +62,19 @@ public class AppointmentDetailsTest extends EspressoTestBase {
         TextNote.clickRepeatWeeklyButton();
 
         // Verify: The number of weeks is between Every and Week texts.
-        assertTrue("", TextNote.isNumberOfWeeksOnTheRightOfEveryText());
-        assertTrue("", TextNote.isNumberOfWeeksOnTheLeftOfWeekText());
+        assertTrue("No of week is not on the right of Every text", TextNote.isNumberOfWeeksOnTheRightOfEveryText());
+        assertTrue("No of week is not on the left of Week text", TextNote.isNumberOfWeeksOnTheLeftOfWeekText());
 
-        // Step: Click on "Friday" buttton.
+        // Step: Click on "Friday" button.
         TextNote.clickOnFridayButton();
+
+        // Step: Click on Done button
+        TextNote.clickDoneButton();
+
+        // Step: Click return button
+        TextNote.clickReturnButton();
+
+        // Verify: Note with Doctor appointment title is displayed
+        assertTrue("Note with Doctor appointment title is not displayed", Home.isNoteWithDoctorAppointmentTitleDisplayed());
     }
 }

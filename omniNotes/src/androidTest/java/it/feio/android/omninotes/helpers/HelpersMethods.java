@@ -12,6 +12,8 @@ import org.hamcrest.Matcher;
 import java.util.Random;
 
 import it.feio.android.omninotes.R;
+import it.feio.android.omninotes.screens.Home;
+import it.feio.android.omninotes.screens.TextNote;
 
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
@@ -127,6 +129,19 @@ public class HelpersMethods {
             return true;
         } catch (NoMatchingViewException | AppNotIdleException | AssertionFailedError | NoMatchingRootException e) {
             return false;
+        }
+    }
+
+    public static void addNoteItems(Matcher<View> matcher, String specificToDoItemText, int position, int noOfItems) {
+        for (int i = 0; i < noOfItems; i++) {
+            Home.clickAddButton();
+            Home.clickTextNoteButton();
+            if (i == position) {
+                onView(matcher).perform(typeText(specificToDoItemText));
+            } else {
+                onView(matcher).perform(typeText(generatingRandomText()));
+            }
+            TextNote.clickReturnButton();
         }
     }
 }

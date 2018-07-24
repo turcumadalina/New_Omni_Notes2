@@ -5,6 +5,8 @@ import it.feio.android.omninotes.helpers.Constants;
 import it.feio.android.omninotes.helpers.EspressoMatchers;
 import it.feio.android.omninotes.helpers.HelpersMethods;
 
+import static android.support.test.espresso.Espresso.onView;
+import static android.support.test.espresso.action.ViewActions.pressKey;
 import static android.support.test.espresso.matcher.ViewMatchers.withContentDescription;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
@@ -64,5 +66,40 @@ public class Home {
 
     public static boolean isPhotoButtonImageAboveChecklistButtonImage() {
         return HelpersMethods.isUIObjectAboveAnotherObject(withId(R.id.fab_camera), withId(R.id.fab_checklist));
+    }
+
+    public static boolean isNoteWithDoctorAppointmentTitleDisplayed() {
+        return HelpersMethods.isUIObjectDisplayed(withId(R.id.card_layout));
+    }
+
+    // This is for Toolbar validation test
+    public static void add5Items() {
+        HelpersMethods.addNoteItems(withId(R.id.detail_title), Constants.MY_NOTE, 2, 5);
+    }
+
+    public static boolean isSortButtonOnTheRightOfSearchButton() {
+        return HelpersMethods.isUIObjectLeftOfAnotherUIObject(withId(R.id.menu_sort), withContentDescription(Constants.MORE_OPTIONS));
+    }
+
+    public static boolean isSortButtonOnTheLeftOfMoreOptionButton() {
+        return HelpersMethods.isUIObjectRightOfAnotherUIObject(withId(R.id.menu_sort), withId(R.id.menu_search));
+    }
+
+    public static int isListViewWith5Items() {
+        return HelpersMethods.getNoOfChildsFromListView();
+    }
+
+    public static void searchTheNoteWithMyNoteTitle() {
+        HelpersMethods.clickUIElement(withId(R.id.menu_search));
+        HelpersMethods.typeItemText(withId(R.id.search_src_text), Constants.MY_NOTE);
+        onView(withId(R.id.search_src_text)).perform(pressKey(66));
+    }
+
+    public static boolean isNoteWithTitleMyNoteDisplayed() {
+        return HelpersMethods.isUIObjectDisplayed(allOf(withId(R.id.note_title), withText(Constants.MY_NOTE)));
+    }
+
+    public static void clickBackButton() {
+        HelpersMethods.clickUIElement(withContentDescription(Constants.COLLAPSE));
     }
 }
