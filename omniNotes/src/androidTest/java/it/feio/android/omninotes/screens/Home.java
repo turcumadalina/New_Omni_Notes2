@@ -102,4 +102,23 @@ public class Home {
     public static void clickBackButton() {
         HelpersMethods.clickUIElement(withContentDescription(Constants.COLLAPSE));
     }
+
+    public static boolean isAllItemsDisplayedInListView(int noOfItemsExpected) {
+        try {
+            for (int i = 0; i < noOfItemsExpected; i++) {
+                HelpersMethods.isUIObjectDisplayed(EspressoMatchers.childAtPosition(withId(R.id.list), i));
+            }
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    public static void clickOnNoteWithTitleMyNote() {
+        HelpersMethods.clickUIElement(allOf(withId(R.id.note_title), withText(Constants.MY_NOTE)));
+    }
+
+    public static void clickOnTrashButton() {
+        HelpersMethods.clickUIElement(allOf(withId(R.id.title), withText(Constants.TRASH)));
+    }
 }

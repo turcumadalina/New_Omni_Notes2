@@ -4,15 +4,16 @@ import org.junit.Test;
 
 import it.feio.android.omninotes.helpers.EspressoTestBase;
 import it.feio.android.omninotes.screens.Home;
-import it.feio.android.omninotes.screens.TextNote;
+import it.feio.android.omninotes.screens.Trash;
 
 import static junit.framework.Assert.assertEquals;
+import static junit.framework.Assert.assertFalse;
 import static junit.framework.Assert.assertTrue;
 
 public class ToolbarValidation extends EspressoTestBase {
 
     @Test
-    public void testToolbarValidation() {
+    public void testToolbarValidation() throws InterruptedException {
         // Verify: Menu_Sort is displayed between menu_search and more option.
         assertTrue("Sort button is not on the right of the Search button", Home.isSortButtonOnTheRightOfSearchButton());
         assertTrue("Sort button is not on the left of the More options button", Home.isSortButtonOnTheLeftOfMoreOptionButton());
@@ -33,12 +34,17 @@ public class ToolbarValidation extends EspressoTestBase {
         Home.clickBackButton();
 
         // Verify: All 5 items are displayed.
+        assertTrue("All 5 items are not displayed", Home.isAllItemsDisplayedInListView(5));
 
+        // Wait a second
+        Thread.sleep(1000);
 
         // Step: Click on the item with text " My Note" and move it to trash (on more option click on "Trash").
+        Home.clickOnNoteWithTitleMyNote();
+        Trash.clickOnMoreOptionButton();
+        Home.clickOnTrashButton();
 
-
-        // Verify: Item with text " My Note" is not displayed.
-
+        // Verify: Item with title " My Note" is not displayed.
+        assertFalse("Item with title My Note is still displayed", Home.isNoteWithTitleMyNoteDisplayed());
     }
 }
