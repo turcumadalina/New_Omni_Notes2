@@ -11,7 +11,6 @@ import org.hamcrest.Matcher;
 
 import java.util.Random;
 
-import it.feio.android.omninotes.R;
 import it.feio.android.omninotes.screens.Home;
 import it.feio.android.omninotes.screens.TextNote;
 
@@ -27,7 +26,6 @@ import static android.support.test.espresso.assertion.PositionAssertions.isRight
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import static android.support.test.espresso.matcher.ViewMatchers.isClickable;
 import static android.support.test.espresso.matcher.ViewMatchers.isCompletelyDisplayed;
-import static android.support.test.espresso.matcher.ViewMatchers.withId;
 
 public class HelpersMethods {
 
@@ -52,17 +50,8 @@ public class HelpersMethods {
         onView(matcher).perform(swipeLeft());
     }
 
-//    public static boolean isUIObjectBelowAnotherObject(Matcher<View> matcher1, Matcher<View> matcher2) {
-//        try {
-//            onView(matcher1).check(isBelow(matcher2));
-//            return true;
-//        } catch (NoMatchingViewException | AppNotIdleException | AssertionFailedError | NoMatchingRootException e) {
-//            return false;
-//        }
-//    }
-
-    public static int getNoOfChildsFromListView() {
-        return EspressoMatchers.getListViewChildCount(withId(R.id.list));
+    public static int getNoOfChildsFromListView(Matcher<View> matcher) {
+        return EspressoMatchers.getListViewChildCount(matcher);
     }
 
     private static String generatingRandomText() {
@@ -132,11 +121,11 @@ public class HelpersMethods {
         }
     }
 
-    public static void addNoteItems(Matcher<View> matcher, String specificToDoItemText, int position, int noOfItems) {
+    public static void addNoteItems(Matcher<View> matcher, String specificToDoItemText, int positionOfSpecificItem, int noOfItems) {
         for (int i = 0; i < noOfItems; i++) {
             Home.clickAddButton();
             Home.clickTextNoteButton();
-            if (i == position) {
+            if (i == positionOfSpecificItem) {
                 onView(matcher).perform(typeText(specificToDoItemText));
             } else {
                 onView(matcher).perform(typeText(generatingRandomText()));

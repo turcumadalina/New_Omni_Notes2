@@ -3,7 +3,6 @@ package it.feio.android.omninotes.tests;
 import org.junit.Test;
 
 import it.feio.android.omninotes.helpers.EspressoTestBase;
-import it.feio.android.omninotes.helpers.HelpersMethods;
 import it.feio.android.omninotes.screens.Archives;
 import it.feio.android.omninotes.screens.Home;
 import it.feio.android.omninotes.screens.NavigationDrawer;
@@ -58,7 +57,7 @@ public class HamburgerTest extends EspressoTestBase {
         NavigationDrawer.clickOnArchiveButton();
 
         // Verify: Note with title "Pay the bills" is displayed"
-        assertTrue("Note with text Pay the bills is not displayed", Archives.isNoteWithTextPayTheBilsDisplayed());
+        assertTrue("Note with text Pay the bills is not displayed", Archives.isNoteWithTextPayTheBillsDisplayed());
 
         // Step: Delete the note with title "Pay the bills" from archives
         Archives.removeNoteWithTitlePayTheBills();
@@ -76,7 +75,7 @@ public class HamburgerTest extends EspressoTestBase {
 //        assertTrue("Trash button is not below Notes button", NavigationDrawer.isButtonWithNameTrashDisplayedBelowTheButtonWithNameNotes());
 
         // Verify: The button with name Archive is NOT displayed on navigation drawer
-        assertFalse("Archive button is still displayed on mavigation drawer", NavigationDrawer.isArchiveButtonOnNavigationDrawer());
+        assertFalse("Archive button is still displayed on navigation drawer", NavigationDrawer.isArchiveButtonOnNavigationDrawer());
 
         // Step: Click on trash button
         NavigationDrawer.clickOnTrashButton();
@@ -85,7 +84,7 @@ public class HamburgerTest extends EspressoTestBase {
         assertTrue("Note with title Pay the bills is displayed on Trash is not displayed", Trash.isNoteWithTitlePayTheBillsDisplayed());
 
         // Verify: List View has one child
-        assertEquals("List View has more/less then one child", 1, HelpersMethods.getNoOfChildsFromListView());
+        assertEquals("List View has more/less then one child", 1, Trash.isListViewWithOneItem());
 
         // Step: Click on more options button
         Trash.clickOnMoreOptionButton();

@@ -25,4 +25,8 @@ public class Trash {
     public static void clickOkButton() {
         HelpersMethods.clickUIElement(withId(R.id.buttonDefaultPositive));
     }
+
+    public static int isListViewWithOneItem() {
+        return HelpersMethods.getNoOfChildsFromListView(withId(R.id.list));
+    }
 }

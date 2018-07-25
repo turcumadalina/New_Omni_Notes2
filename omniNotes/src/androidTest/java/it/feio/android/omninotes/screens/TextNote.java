@@ -47,7 +47,7 @@ public class TextNote {
     }
 
     public static void addTextNoteWithContentTuesday17Jul2018_18_30() {
-        HelpersMethods.typeItemText(withId(R.id.detail_content), Constants.DOCTOR_APPOINTMENT_CONTENT);
+        HelpersMethods.typeItemText(withId(R.id.detail_content), Constants.TUESDAY_17_Jul_2018_18_30);
     }
 
     public static void addReminderToTheTextNoteWithTitleDoctorAppointment() {

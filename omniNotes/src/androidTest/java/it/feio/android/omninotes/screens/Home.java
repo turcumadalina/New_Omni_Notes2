@@ -86,7 +86,7 @@ public class Home {
     }
 
     public static int isListViewWith5Items() {
-        return HelpersMethods.getNoOfChildsFromListView();
+        return HelpersMethods.getNoOfChildsFromListView(withId(R.id.list));
     }
 
     public static void searchTheNoteWithMyNoteTitle() {

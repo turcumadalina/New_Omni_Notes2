@@ -24,13 +24,6 @@ public class NavigationDrawer {
         HelpersMethods.clickUIElement(withText(R.string.archive));
     }
 
-//    public static boolean isButtonWithNameTrashDisplayedBelowTheButtonWithNameNotes() {
-//        Matcher<View> trashMatcher = allOf(withId(R.id.drawer_nav_list), allOf(withChild(withId(R.id.title)), withText(R.string.trash_action))) ;
-//        Matcher<View> notesMatcher = allOf(withId(R.id.drawer_nav_list), allOf(withChild(withId(R.id.title)), withText(R.string.title_item_list)));
-//        return HelpersMethods.isUIObjectBelowAnotherObject(trashMatcher, notesMatcher);
-//        return HelpersMethods.isUIObjectBelowAnotherObject(withText("Trash"), withText("Notes"));
-//    }
-
     public static boolean isArchiveButtonOnNavigationDrawer() {
         return HelpersMethods.isUIObjectDisplayed(allOf(withId(R.id.title), withText(R.string.archive)));
     }
