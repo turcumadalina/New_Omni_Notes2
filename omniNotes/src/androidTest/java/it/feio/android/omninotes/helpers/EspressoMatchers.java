@@ -167,6 +167,4 @@ public class EspressoMatchers {
             sb.append(AB.charAt(rnd.nextInt(AB.length())));
         return sb.toString();
     }
-
-
 }
