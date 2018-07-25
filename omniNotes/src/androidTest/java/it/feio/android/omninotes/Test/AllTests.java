@@ -125,6 +125,8 @@ public class AllTests extends StartTheApplication {
 
         // Step 12. Press back.
         TextNote.clickReturnButton();
+
+        // Wait 2 seconds
         Thread.sleep(2000);
 
         // Expected Result: Reminder set is displayed.

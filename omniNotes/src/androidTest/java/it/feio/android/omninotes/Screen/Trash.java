@@ -25,4 +25,3 @@ public class Trash {
         return HelpersMethods.isVisible(withText(Constants.PAY_THE_BILLS));
     }
 }
-
