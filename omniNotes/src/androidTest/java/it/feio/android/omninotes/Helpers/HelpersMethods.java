@@ -104,7 +104,7 @@ public class HelpersMethods extends EspressoMethods {
     }
 
     public static void typeNewItemAction(int xItemsAdded, int xPositionToAddNewText) {
-        for (int i = 0; i <= xItemsAdded; i++) {
+        for (int i = 0; i < xItemsAdded; i++) {
             TextNote.clickAddButton();
             TextNote.clickTextNoteButton();
             TextNote.clickTitleBox();
@@ -113,7 +113,6 @@ public class HelpersMethods extends EspressoMethods {
                 HelpersMethods.typeTextAction(withId(R.id.detail_title), Constants.MY_NOTE);
                 TextNote.clickReturnButton();
             } else {
-
                 HelpersMethods.typeTextAction(withId(R.id.detail_title), HelpersMethods.getRandomString());
                 TextNote.clickContentBox();
                 HelpersMethods.typeTextAction(withId(R.id.detail_content), HelpersMethods.getRandomString());
