@@ -48,11 +48,11 @@ public class Home {
         HelpersMethods.clickAction(withId(R.id.fab_expand_menu_button));
     }
 
-    public static void clickOnArchiveButton() {
+    public static void clickArchiveButton() {
         HelpersMethods.clickAction(withText(Constants.ARCHIVE));
     }
 
-    public static void clickOnTrashButton() {
+    public static void clickTrashButton() {
         HelpersMethods.clickAction(withText(Constants.TRASH));
     }
 
@@ -89,6 +89,14 @@ public class Home {
     }
 
     public static boolean isArchiveTextVisible() {
-        return HelpersMethods.isVisible(withText(Constants.ARCHIVE));
+        return HelpersMethods.isVisible(allOf(withId(R.id.title), withText(Constants.ARCHIVE)));
+    }
+
+    public static boolean isArchiveButtonSiblingWithNotesButton() {
+        return HelpersMethods.isVisible(allOf(withChild(allOf(withId(R.id.title), withText(Constants.ARCHIVE))), hasSibling(withChild(allOf(withId(R.id.title), withText(Constants.NOTES))))));
+    }
+
+    public static void clickTextNoteButton() {
+        HelpersMethods.clickAction(withId(R.id.fab_note));
     }
 }

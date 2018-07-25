@@ -15,4 +15,5 @@ public class Constants {
     public static final String TEXT_NOTE = "Text note";
     public static final String DOCTOR_APPOINTMENT = "Doctor appointment";
     public static final String TUESDAY_17_JUL_2018_18_30 = "Tuesday, 17 Jul 2018, 18:30.";
+    public static final String NOTES = "Notes";
 }

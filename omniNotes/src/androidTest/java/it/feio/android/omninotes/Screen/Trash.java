@@ -21,7 +21,7 @@ public class Trash {
         HelpersMethods.clickAction(withId(R.id.buttonDefaultPositive));
     }
 
-    public static boolean isPayTheBillsVisible() {
+    public static boolean isPayTheBillsTextVisible() {
         return HelpersMethods.isVisible(withText(Constants.PAY_THE_BILLS));
     }
 }

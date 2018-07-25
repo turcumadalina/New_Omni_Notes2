@@ -13,10 +13,6 @@ public class TextNote {
         HelpersMethods.clickAction(withId(R.id.fab_expand_menu_button));
     }
 
-    public static void clickTextNoteButton() {
-        HelpersMethods.clickAction(withId(R.id.fab_note));
-    }
-
     public static void clickTitleBox() {
         HelpersMethods.clickAction(withId(R.id.detail_title));
     }
@@ -45,7 +41,7 @@ public class TextNote {
         HelpersMethods.swipeLeftAction(withText(Constants.PAY_THE_BILLS));
     }
 
-    public static void clickOnHamburgerButton() {
+    public static void clickHamburgerButton() {
         HelpersMethods.clickAction(withContentDescription(Constants.DRAWER_OPEN));
     }
 
@@ -63,5 +59,9 @@ public class TextNote {
 
     public static void typeAppointmentContent() {
         HelpersMethods.typeTextAction(withId(R.id.detail_content), Constants.TUESDAY_17_JUL_2018_18_30);
+    }
+
+    public static void clickTextNoteButton() {
+        HelpersMethods.clickAction(withId(R.id.fab_note));
     }
 }
