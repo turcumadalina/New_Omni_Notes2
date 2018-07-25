@@ -146,5 +146,4 @@ public class Home {
     public static void clickTrash() {
         HelperMethods.performClick(withChild(AllOf.allOf(withId(R.id.title), withText(Constants.TRASH))));
     }
-
 }

@@ -82,8 +82,8 @@ public class AppointmentDetailsTest extends EspressoTestBase {
         AddTextNote.enableRepeatWeekly();
 
         // Verify: The number of weeks is between 2 texts
-        assertTrue("The number of weeks is not between 2 texts", AddTextNote.isWeekNoRightOfEveryText());
-        assertTrue("The number of weeks is not between 2 texts", AddTextNote.isWeekNoLeftOfWeekText());
+        assertTrue("The number of weeks is not right of EveryText", AddTextNote.isWeekNoRightOfEveryText());
+        assertTrue("The number of weeks is not left of WeekTest", AddTextNote.isWeekNoLeftOfWeekText());
 
         // Step: Click on "Friday" button
         AddTextNote.clickFriday();

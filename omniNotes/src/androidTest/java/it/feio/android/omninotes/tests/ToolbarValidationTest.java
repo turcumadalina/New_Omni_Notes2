@@ -14,7 +14,6 @@ public class ToolbarValidationTest extends EspressoTestBase {
 
     @Test
     public void toolbarValidation() throws InterruptedException {
-
         // Verify: Menu_Sort is displayed between menu_search and more option.
         assertTrue("Menu_Sort is not displayed left of more options.", Home.isMenuSortLeftOfMoreOptions());
         assertTrue("Menu_Sort is not displayed right of menu_search", Home.isMenuSortRightOfSearch());

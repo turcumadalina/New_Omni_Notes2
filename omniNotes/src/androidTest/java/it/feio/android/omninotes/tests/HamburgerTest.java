@@ -45,8 +45,10 @@ public class HamburgerTest extends EspressoTestBase {
         // Step: Delete (swipe) the note with title "Pay the bills"
         Home.deletePayTheBillsNote();
 
-        // Step: Click on hamburger
+        // Wait 3 seconds
         Thread.sleep(3000);
+
+        // Step: Click on hamburger
         AddTextNote.clickBackButton();
 
         // Verify: The button with name Trash is displayed //???below the button with name Notes
