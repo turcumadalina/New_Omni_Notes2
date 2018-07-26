@@ -12,7 +12,7 @@ import static junit.framework.Assert.assertTrue;
 public class AppointmentDetailsTest extends StartTheApplication {
 
     @Test
-    public void AppointmentDetailsValidationTest() throws InterruptedException {
+    public void testAppointmentDetails() throws InterruptedException {
         // Step 1. Start the app.
 
         // Expected Result: Image with "Nothing here!" is displayed and clickable.

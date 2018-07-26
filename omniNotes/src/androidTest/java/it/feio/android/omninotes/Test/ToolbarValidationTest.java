@@ -18,7 +18,7 @@ import static junit.framework.Assert.assertTrue;
 
 public class ToolbarValidationTest extends StartTheApplication {
     @Test
-    public void ToolbarTest() {
+    public void testToolbar() {
         // Step: Start the app
 
         // Expected Result: Menu_Sort is displayed between menu_search and more option.

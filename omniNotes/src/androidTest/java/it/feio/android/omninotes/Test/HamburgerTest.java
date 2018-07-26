@@ -17,7 +17,7 @@ import static junit.framework.Assert.assertTrue;
 
 public class HamburgerTest extends StartTheApplication {
     @Test
-    public void HamburgerValidationTest() throws InterruptedException {
+    public void testHamburgerValidation() throws InterruptedException {
         // Step 1. Click on Add button
         Home.clickAddButton();
 
